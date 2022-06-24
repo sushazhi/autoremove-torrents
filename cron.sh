@@ -13,7 +13,7 @@ if [ -z "$CRON" ]
     # Start cron
     echo "INFO: Starting cron ..."
     touch /var/log/crond.log
-    cron -f &
+    crond -f &
     echo "INFO: cron started"
     tail -F /var/log/crond.log /var/log/autoremove-torrents.log
   fi
