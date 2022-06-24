@@ -10,8 +10,8 @@ RUN set -ex \
         && apk update \
         && apk add --no-cache \
         pip
-RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple        
- && pip install autoremove-torrents
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \       
+    && pip install autoremove-torrents
 
 ADD cron.sh /usr/bin/cron.sh
 RUN chmod +x /usr/bin/cron.sh
