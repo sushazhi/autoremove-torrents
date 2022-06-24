@@ -13,11 +13,11 @@ RUN touch /usr/bin/cron.sh
 
 RUN chmod +x /usr/bin/cron.sh
 
-RUN touch /var/log/autoremove-torrents.log
+RUN touch /app/autoremove-torrents.logs
 
 RUN touch config.yml
 
-ENV OPTS '-c /app/config.yml'
+ENV OPTS '/usr/bin/autoremove-torrents --conf=/app/config.yml --log=/app/autoremove-torrents.logs'
 ENV CRON '*/15 * * * *'
 
 ENTRYPOINT ["/bin/sh", "/usr/bin/cron.sh"]
