@@ -4,16 +4,14 @@ ENV TZ Asia/Shanghai
 
 WORKDIR /app
 
-RUN set -ex \
-        #&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/' /etc/apk/repositories \
-        && sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories \
-        && apk update \
-        && apk add --no-cache \
-        pip
+RUN apk update \
+        && apk add --no-cache pip
+        
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \       
     && pip install autoremove-torrents
 
 RUN touch /usr/bin/cron.sh
+
 RUN chmod +x /usr/bin/cron.sh
 
 RUN touch /var/log/autoremove-torrents.log
