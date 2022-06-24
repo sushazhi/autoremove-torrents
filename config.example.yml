@@ -21,5 +21,3 @@ my_task:          # Part 1: Task Name
     # Add more strategies here...
   # Part 4: Decide whether to remove and delete data (optional)
   delete_data: true
-© 2022 GitHub, Inc.
-Term
