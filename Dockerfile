@@ -18,7 +18,7 @@ RUN chmod +x /usr/bin/cron.sh
 
 RUN touch /var/log/autoremove-torrents.log
 
-CD config.yml
+touch config.yml
 
 ENV OPTS '-c /app/config.yml'
 ENV CRON '*/15 * * * *'
