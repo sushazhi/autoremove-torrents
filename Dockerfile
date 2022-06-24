@@ -4,8 +4,8 @@ ENV TZ Asia/Shanghai
 
 WORKDIR /app
 
-RUN apk update \
-        && apk add --no-cache pip
+RUN apk update
+RUN apk add --no-cache pip
         
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \       
     && pip install autoremove-torrents
