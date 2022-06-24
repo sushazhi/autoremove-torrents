@@ -9,15 +9,14 @@ RUN apk add --no-cache py3-pip
         
 RUN pip install autoremove-torrents
 
-RUN touch /usr/bin/cron.sh
-
+ADD cron.sh /usr/bin/cron.sh
 RUN chmod +x /usr/bin/cron.sh
 
-RUN touch /app/autoremove-torrents.logs
+RUN touch /var/log/autoremove-torrents.log
 
-RUN touch config.yml
+COPY config.example.yml config.yml
 
-ENV OPTS '/usr/bin/autoremove-torrents --conf=/app/config.yml --log=/app/autoremove-torrents.logs'
+ENV OPTS '-c /app/config.yml'
 ENV CRON '*/15 * * * *'
 
 ENTRYPOINT ["/bin/sh", "/usr/bin/cron.sh"]
