@@ -13,7 +13,7 @@ RUN set -ex \
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \       
     && pip install autoremove-torrents
 
-ADD cron.sh /usr/bin/cron.sh
+RUN touch /usr/bin/cron.sh
 RUN chmod +x /usr/bin/cron.sh
 
 RUN touch /var/log/autoremove-torrents.log
